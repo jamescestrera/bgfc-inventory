@@ -1,0 +1,19 @@
+Options -MultiViews
+RewriteEngine On
+
+# Redirect browser requests from PHP filenames to clean URLs.
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.php[\s?] [NC]
+RewriteRule ^index\.php$ /bgfcims/ [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/+(.*/)?([A-Za-z0-9-]+)\.php[\s?] [NC]
+RewriteCond %2 !^(app-shell|api)$ [NC]
+RewriteRule ^([A-Za-z0-9-]+)\.php$ /bgfcims/$1 [R=301,L,NE]
+
+# Resolve extensionless URLs internally to their PHP page.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/bgfcims/$1.php -f
+RewriteRule ^([A-Za-z0-9-]+)/?$ $1.php [END,QSA]
+
+# The shared application template is not a public page.
+RewriteRule ^app-shell(?:\.php)?$ index.php [R=302,L]

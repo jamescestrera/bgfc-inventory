@@ -1,0 +1,12 @@
+{
+  "name": "BGFC Inventory Management System",
+  "short_name": "BGFC IMS",
+  "description": "Responsive inventory management for BGFC.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f5f8fc",
+  "theme_color": "#082d68",
+  "icons": [{"src":"assets/images/bgfc-logo.png","sizes":"1254x1254","type":"image/png","purpose":"any maskable"}]
+}

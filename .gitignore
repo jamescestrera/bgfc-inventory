@@ -1,0 +1,7 @@
+node_modules/
+node_modules - Copy/
+.env
+npm-debug.log
+server.log
+server-error.log
+.DS_Store
